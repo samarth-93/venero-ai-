@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venero AI - Efficiency. Automation. Growth.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --accent-color: #8B5CF6; /* Violet color for accents */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+            color: #E5E7EB; /* A light gray for body text */
+        }
+        #hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1; /* Behind the text content */
+        }
+        /* Custom gradient for hero text */
+        .hero-gradient-text {
+            background: linear-gradient(to right, #FFFFFF, #A0A0A0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+        /* Subtle glow effect for the hero section */
+        .hero-glow {
+            background-image: radial-gradient(ellipse 80% 50% at 50% -20%,rgba(120,119,198,0.3),hsla(0,0%,100%,0));
+        }
+        /* Animation for sections fading in on scroll */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Custom card styling */
+        .service-card {
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            background-color: rgba(255, 255, 255, 0.05);
+            border-color: var(--accent-color);
+        }
+        /* Custom button style */
+        .cta-button {
+            background: var(--accent-color);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        .cta-button:hover {
+            background-color: #7c4dff; /* A slightly lighter violet */
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold text-white tracking-wider">
+                    VENERO AI
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#services" class="text-gray-300 hover:text-white transition-colors">Services</a>
+                    <a href="#about" class="text-gray-300 hover:text-white transition-colors">About</a>
+                    <a href="#contact" class="text-gray-300 hover:text-white transition-colors">Contact</a>
+                </nav>
+                 <button id="mobile-menu-button" class="md-hidden text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+         <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black bg-opacity-90 backdrop-blur-sm">
+            <a href="#services" class="block text-center py-3 text-gray-300 hover:text-white transition-colors">Services</a>
+            <a href="#about" class="block text-center py-3 text-gray-300 hover:text-white transition-colors">About</a>
+            <a href="#contact" class="block text-center py-3 text-gray-300 hover:text-white transition-colors">Contact</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="min-h-screen flex items-center justify-center text-center pt-20 relative overflow-hidden">
+            <canvas id="hero-canvas"></canvas>
+            <div class="hero-glow absolute inset-0 z-2"></div>
+            <div class="container mx-auto px-6 relative z-10">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4 hero-gradient-text">
+                    We build AI systems that scale your business.
+                </h1>
+                <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">
+                    Efficiency. Automation. Growth.
+                </p>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-20 md:py-32">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12 md:mb-16 scroll-reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">AI Solutions to Modernize Your Business</h2>
+                    <p class="text-gray-400 mt-2 max-w-2xl mx-auto">We help you automate boring tasks, unlock insights, and drive efficiency.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service Card 1 -->
+                    <div class="service-card p-8 rounded-lg scroll-reveal">
+                        <div class="mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-2">Process Automation</h3>
+                        <p class="text-gray-400">Eliminate repetitive daily tasks. We design intelligent workflows that save time and reduce human error, freeing your team to focus on what matters.</p>
+                    </div>
+                    <!-- Service Card 2 -->
+                    <div class="service-card p-8 rounded-lg scroll-reveal" style="transition-delay: 0.2s;">
+                         <div class="mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-2">Data-driven Insights</h3>
+                        <p class="text-gray-400">Turn your raw data into a strategic asset. Our AI models uncover hidden patterns and predict future trends to inform your most critical business decisions.</p>
+                    </div>
+                    <!-- Service Card 3 -->
+                    <div class="service-card p-8 rounded-lg scroll-reveal" style="transition-delay: 0.4s;">
+                        <div class="mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-2">Custom AI Systems</h3>
+                        <p class="text-gray-400">Off-the-shelf solutions don't always fit. We build, train, and deploy bespoke AI systems tailored specifically to your unique operational challenges and goals.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 md:py-32 bg-black">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto text-center scroll-reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Pioneering the Future of Work</h2>
+                    <p class="text-gray-300 mt-4 text-lg leading-relaxed">
+                        Venero AI was founded on a simple principle: technology should empower human potential, not replace it. We are a team of AI specialists, engineers, and strategists dedicated to integrating intelligent automation seamlessly into the fabric of businesses. Our mission is to build systems that not only drive growth but also create more efficient and fulfilling work environments.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 md:py-32">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto scroll-reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Ready to Scale?</h2>
+                    <p class="text-gray-400 mt-3 mb-8">Let's discuss how Venero AI can transform your business operations. Reach out to start the conversation.</p>
+                    <a href="mailto:samarth@aivenero.com,Rudraksh@aivenero.com" class="cta-button inline-block text-white font-semibold px-8 py-3 rounded-md">
+                        Get In Touch
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800">
+        <div class="container mx-auto px-6 py-6">
+            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                <p class="text-gray-500">&copy; 2024 Venero AI. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Mobile Menu Toggle ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            mobileMenu.addEventListener('click', (e) => {
+                if (e.target.tagName === 'A') {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+
+            // --- Header Background on Scroll ---
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('bg-black', 'bg-opacity-80', 'backdrop-blur-sm');
+                } else {
+                    header.classList.remove('bg-black', 'bg-opacity-80', 'backdrop-blur-sm');
+                }
+            });
+
+            // --- Scroll Reveal Animation ---
+            const scrollElements = document.querySelectorAll('.scroll-reveal');
+            const elementInView = (el, dividend = 1) => {
+                const elementTop = el.getBoundingClientRect().top;
+                return (
+                    elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend
+                );
+            };
+            const displayScrollElement = (element) => {
+                element.classList.add('visible');
+            };
+            const handleScrollAnimation = () => {
+                scrollElements.forEach((el) => {
+                    if (elementInView(el, 1.25)) {
+                        displayScrollElement(el);
+                    }
+                });
+            }
+            window.addEventListener('scroll', handleScrollAnimation);
+            handleScrollAnimation();
+
+            // --- Hero Canvas Particle Animation ---
+            const canvas = document.getElementById('hero-canvas');
+            const ctx = canvas.getContext('2d');
+            let particlesArray;
+
+            // Set canvas size
+            function setCanvasSize() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            setCanvasSize();
+
+            // Particle class
+            class Particle {
+                constructor(x, y, directionX, directionY, size, color) {
+                    this.x = x;
+                    this.y = y;
+                    this.directionX = directionX;
+                    this.directionY = directionY;
+                    this.size = size;
+                    this.color = color;
+                }
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+                    ctx.fillStyle = this.color;
+                    ctx.fill();
+                }
+                update() {
+                    if (this.x > canvas.width || this.x < 0) {
+                        this.directionX = -this.directionX;
+                    }
+                    if (this.y > canvas.height || this.y < 0) {
+                        this.directionY = -this.directionY;
+                    }
+                    this.x += this.directionX;
+                    this.y += this.directionY;
+                    this.draw();
+                }
+            }
+
+            // Create particle array
+            function init() {
+                particlesArray = [];
+                let numberOfParticles = (canvas.height * canvas.width) / 9000;
+                for (let i = 0; i < numberOfParticles; i++) {
+                    let size = (Math.random() * 2) + 1;
+                    let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
+                    let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
+                    let directionX = (Math.random() * .4) - .2;
+                    let directionY = (Math.random() * .4) - .2;
+                    let color = 'rgba(255, 255, 255, 0.5)';
+                    particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
+                }
+            }
+
+            // Animation loop
+            function animate() {
+                requestAnimationFrame(animate);
+                ctx.clearRect(0, 0, innerWidth, innerHeight);
+
+                for (let i = 0; i < particlesArray.length; i++) {
+                    particlesArray[i].update();
+                }
+                connect();
+            }
+
+            // Check if particles are close enough to draw a line between them
+            function connect() {
+                let opacityValue = 1;
+                for (let a = 0; a < particlesArray.length; a++) {
+                    for (let b = a; b < particlesArray.length; b++) {
+                        let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x)) +
+                            ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
+                        if (distance < (canvas.width / 7) * (canvas.height / 7)) {
+                            opacityValue = 1 - (distance / 20000);
+                            ctx.strokeStyle = `rgba(139, 92, 246, ${opacityValue})`; // Use accent color for lines
+                            ctx.lineWidth = 1;
+                            ctx.beginPath();
+                            ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+                            ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+            }
+
+            // Resize event
+            window.addEventListener('resize', () => {
+                setCanvasSize();
+                init();
+            });
+
+            init();
+            animate();
+        });
+    </script>
+</body>
+</html>
